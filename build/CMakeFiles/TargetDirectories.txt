@@ -1,0 +1,4 @@
+/home/melon/projects/threadpool/build/CMakeFiles/threadpool_main.dir
+/home/melon/projects/threadpool/build/CMakeFiles/threadpool_tests.dir
+/home/melon/projects/threadpool/build/CMakeFiles/edit_cache.dir
+/home/melon/projects/threadpool/build/CMakeFiles/rebuild_cache.dir
