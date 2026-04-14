@@ -7,13 +7,33 @@
 
 namespace thread_pool {
 
-ThreadPool::ThreadPool(std::size_t thread_count):
-thread_count_(thread_count)
-{
+ThreadPool::ThreadPool(std::size_t thread_count, PolicyType type):
+thread_count_(thread_count), policy_type_(type){
+    
     if(thread_count == 0){
         throw std::invalid_argument("thread_count must be greater than 0!");
     }
-    auto policy = std::make_unique<FifoPolicy>();
+
+     std::unique_ptr<ISchedulePolicy> policy;
+
+    switch (policy_type_) {
+    case PolicyType::FIFO:
+        policy = std::make_unique<FifoPolicy>();
+        break;
+
+    // TODO: 写好接口后使用
+    /* case PolicyType::Priority:
+        policy = std::make_unique<PriorityPolicy>();
+        break;
+
+    case PolicyType::WorkStealing:
+        policy = std::make_unique<WorkStealingPolicy>(thread_count_);
+        break;
+ */
+    default:
+        throw std::logic_error("unknown policy type");
+    }
+
     scheduler_ = std::make_unique<Scheduler>(std::move(policy));
     // 创建workers_
     workers_.reserve(thread_count_);
@@ -39,12 +59,23 @@ void ThreadPool::start() {
 
 }
 
+// submit()
+// 默认任务提交入口：使用默认调度参数。
+// 对 FIFO 普通入队；
+// 对 PriorityPolicy 等价于默认优先级；
+// 对 WorkStealingPolicy 表示未指定额外调度提示
 void ThreadPool::submit(Task task) {
+    submit(std::move(task), ScheduleOptions{});
+}
+
+// submit() opts重载
+
+void ThreadPool::submit(Task task, const ScheduleOptions& opts){
     if(!task) throw std::invalid_argument("task should not be empty!");
     if(state_ != PoolState::Running){
         throw std::logic_error("threadpool can only be submitted from Running state!");
     }    
-    scheduler_->schedule(std::move(task));
+    scheduler_->schedule(std::move(task), opts);
     
 }
 

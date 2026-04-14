@@ -21,6 +21,15 @@ enum class PoolState {
 };
 
 /**
+ * @brief 使用策略
+ */
+enum class PolicyType {
+    FIFO,
+    Priority,
+    WorkStealing
+};
+
+/**
  * @brief FIFO 线程池
  *
  * 负责管理线程池生命周期、工作线程集合以及任务提交入口。
@@ -31,7 +40,7 @@ public:
      * @brief 构造线程池
      * @param thread_count 工作线程数量
      */
-    explicit ThreadPool(std::size_t thread_count);
+    explicit ThreadPool(std::size_t thread_count, PolicyType type = PolicyType::FIFO);
 
     ~ThreadPool();
 
@@ -46,7 +55,10 @@ public:
      */
     // submit()
     void submit(Task task);
-    // 有返回值的重载
+    // priority_policy 重载
+    void submit(Task task, const ScheduleOptions& opts);
+
+    // 模板重载
     template <class F, class... Args>
     auto submit(F&& f, Args&&... args)
         -> std::future<std::invoke_result_t<F, Args...>>
@@ -55,7 +67,7 @@ public:
 
         auto bound_task = std::bind(std::forward<F>(f), std::forward<Args>(args)...);
 
-        auto packaged =
+        auto packaged = 
             std::make_shared<std::packaged_task<ReturnType()>>(std::move(bound_task));
 
         std::future<ReturnType> fut = packaged->get_future();
@@ -67,6 +79,31 @@ public:
         submit(std::move(wrapper));
         return fut;
     }
+    
+    // Priority模板重载
+    template <class F, class... Args>
+    auto submit(const ScheduleOptions& opts, F&& f, Args&&... args)
+        -> std::future<std::invoke_result_t<F, Args...>>
+    {
+        using ReturnType = std::invoke_result_t<F, Args...>;
+
+        auto bound_task = std::bind(std::forward<F>(f), std::forward<Args>(args)...);
+
+        auto packaged =
+            std::make_shared<std::packaged_task<ReturnType()>>(std::move(bound_task));
+
+        std::future<ReturnType> fut = packaged->get_future();
+
+        // 显式调用 submit(Task, opts)
+        this->submit(Task{[packaged]() {
+            (*packaged)();
+        }}, opts);
+
+        return fut;
+    }
+    
+
+
 
     /**
      * @brief 关闭线程池
@@ -90,6 +127,7 @@ private:
     std::vector<std::unique_ptr<Worker>> workers_;
     std::size_t thread_count_;
     PoolState state_;
+    PolicyType policy_type_;
 };
 
 } // namespace thread_pool
