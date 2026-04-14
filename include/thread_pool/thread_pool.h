@@ -66,7 +66,7 @@ private:
     std::unique_ptr<Scheduler> scheduler_;
     std::vector<std::unique_ptr<Worker>> workers_;
     std::size_t thread_count_;
-    PoolState state_ {PoolState::Created};
+    PoolState state_;
 };
 
 } // namespace thread_pool
