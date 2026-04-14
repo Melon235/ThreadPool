@@ -11,9 +11,9 @@ Scheduler::Scheduler(std::unique_ptr<ISchedulePolicy> policy)
     policy_ = std::move(policy);
 }
 
-void Scheduler::schedule(Task task, std::size_t hint_worker) {
+void Scheduler::schedule(Task task, const ScheduleOptions& opts) {
     if(!task) throw std::invalid_argument("task is empty!");
-    policy_->enqueue(std::move(task), hint_worker);
+    policy_->enqueue(std::move(task), opts);
 }
 
 Task Scheduler::fetch_task(std::size_t worker_id) {

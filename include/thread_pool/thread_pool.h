@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <memory>
 #include <vector>
+#include <future>
 
 #include "thread_pool/scheduler.h"
 #include "thread_pool/task.h"
@@ -43,7 +44,29 @@ public:
      * @brief 提交任务
      * @param task 要提交的任务
      */
+    // submit()
     void submit(Task task);
+    // 有返回值的重载
+    template <class F, class... Args>
+    auto submit(F&& f, Args&&... args)
+        -> std::future<std::invoke_result_t<F, Args...>>
+    {
+        using ReturnType = std::invoke_result_t<F, Args...>;
+
+        auto bound_task = std::bind(std::forward<F>(f), std::forward<Args>(args)...);
+
+        auto packaged =
+            std::make_shared<std::packaged_task<ReturnType()>>(std::move(bound_task));
+
+        std::future<ReturnType> fut = packaged->get_future();
+
+        Task wrapper = [packaged]() {
+            (*packaged)();
+        };
+
+        submit(std::move(wrapper));
+        return fut;
+    }
 
     /**
      * @brief 关闭线程池

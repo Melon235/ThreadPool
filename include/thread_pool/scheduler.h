@@ -30,7 +30,7 @@ public:
      * @param task 要调度的任务
      * @param hint_worker 目标 worker 提示，供特定策略使用
      */
-    void schedule(Task task, std::size_t hint_worker = ISchedulePolicy::npos);
+    void schedule(Task task, const ScheduleOptions& opts = {});
 
     /**
      * @brief 获取任务

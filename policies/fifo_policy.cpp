@@ -7,9 +7,9 @@
 namespace thread_pool {
 
 // task入队
-void FifoPolicy::enqueue(Task task, std::size_t hint_worker) {
+void FifoPolicy::enqueue(Task task, const ScheduleOptions& opts) {
     
-    (void)hint_worker; // FIFO中无该参数
+    (void)opts; // FIFO中无该参数
     if(!task){
         return;
     }

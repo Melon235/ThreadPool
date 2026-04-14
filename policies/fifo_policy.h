@@ -22,7 +22,7 @@ public:
     FifoPolicy() = default;
     ~FifoPolicy() override = default;
 
-    void enqueue(Task task, std::size_t hint_worker = npos) override;
+    void enqueue(Task task, const ScheduleOptions& opts = {}) override;
     Task dequeue(std::size_t worker_id) override;
     void shutdown() override;
 

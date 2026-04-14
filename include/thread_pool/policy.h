@@ -25,7 +25,7 @@ public:
      * @param hint_worker 目标 worker 提示，FIFO 策略可忽略，
      *        为后续 WorkStealing 策略预留
      */
-    virtual void enqueue(Task task, std::size_t hint_worker = npos) = 0;
+    virtual void enqueue(Task task, const ScheduleOptions& opts = {}) = 0;
 
     /**
      * @brief 任务出队
