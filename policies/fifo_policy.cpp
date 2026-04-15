@@ -10,6 +10,7 @@ namespace thread_pool {
 void FifoPolicy::enqueue(Task task, const ScheduleOptions& opts) {
     
     (void)opts; // FIFO中无该参数
+    // 空任务保护
     if(!task){
         return;
     }
