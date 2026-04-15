@@ -12,13 +12,13 @@ void FifoPolicy::enqueue(Task task, const ScheduleOptions& opts) {
     (void)opts; // FIFO中无该参数
     // 空任务保护
     if(!task){
-        return;
+        throw std::invalid_argument("task must not be empty");
     }
     // queue_上锁
     {
     std::lock_guard<std::mutex> lock(mutex_);
     if(stopping_){
-        return;
+        throw std::logic_error("scheduler is stopping");
     }
     queue_.push(std::move(task));
     }
@@ -46,12 +46,6 @@ Task FifoPolicy::dequeue(std::size_t worker_id) {
 }
 
 void FifoPolicy::shutdown() {
-    // TODO:
-    // 1. 加锁
-    // 2. 将 stopping_ 置为 true
-    //    - 注意重复调用时要保持幂等
-    // 3. 解锁
-    // 4. notify_all，唤醒所有可能阻塞在 dequeue() 的 worker
     {
         std::unique_lock<std::mutex> lck(mutex_);
         stopping_ = true; 

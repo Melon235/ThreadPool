@@ -4,6 +4,7 @@
 #include <utility>
 
 #include "fifo_policy.h"
+#include "priority_policy.h"
 
 namespace thread_pool {
 
@@ -22,10 +23,10 @@ thread_count_(thread_count), policy_type_(type){
         break;
 
     // TODO: 写好接口后使用
-    /* case PolicyType::Priority:
+    case PolicyType::Priority:
         policy = std::make_unique<PriorityPolicy>();
         break;
-
+/* 
     case PolicyType::WorkStealing:
         policy = std::make_unique<WorkStealingPolicy>(thread_count_);
         break;

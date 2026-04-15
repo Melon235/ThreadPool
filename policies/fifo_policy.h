@@ -30,6 +30,10 @@ private:
     std::queue<Task> queue_;
     mutable std::mutex mutex_;
     std::condition_variable cv_;
+    
+    // 关闭标志：
+    // true  表示不再接收新任务，但允许取完已入队任务
+    // false 表示正常运行
     bool stopping_ {false};
 };
 
