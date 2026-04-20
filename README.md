@@ -62,7 +62,7 @@ threadpool/
 
 ## UML Architecture
 
-![Benchmark Summary](docs/images/summary_bar.png)
+![Benchmark Summary](docs/images/uml.png)
 
 ## Core API
 
