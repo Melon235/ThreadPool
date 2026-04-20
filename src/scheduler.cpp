@@ -1,14 +1,32 @@
 #include "thread_pool/scheduler.h"
 
+
 #include <stdexcept>
 #include <utility>
 
+#include "fifo_policy.h"
+#include "priority_policy.h"
+#include "work_stealing_policy.h"
+
 namespace thread_pool {
 
-Scheduler::Scheduler(std::unique_ptr<ISchedulePolicy> policy)
-{
-    if(!policy) throw std::invalid_argument("policy cannot be empty!");
-    policy_ = std::move(policy);
+Scheduler::Scheduler(PolicyType type, std::size_t worker_count) {
+    switch (type) {
+        case PolicyType::FIFO:
+            policy_ = std::make_unique<FifoPolicy>();
+            break;
+
+        case PolicyType::PRIORITY:
+            policy_ = std::make_unique<PriorityPolicy>();
+            break;
+
+        case PolicyType::WORKSTEALING:
+            policy_ = std::make_unique<WorkStealingPolicy>(worker_count);
+            break;
+
+        default:
+            throw std::invalid_argument("unknown policy type");
+    }
 }
 
 void Scheduler::schedule(Task task, const ScheduleOptions& opts) {

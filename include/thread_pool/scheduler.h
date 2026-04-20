@@ -21,7 +21,7 @@ public:
      * @brief 构造调度器
      * @param policy 调度策略对象
      */
-    explicit Scheduler(std::unique_ptr<ISchedulePolicy> policy);
+    explicit Scheduler(PolicyType type, std::size_t worker_count);
 
     ~Scheduler() = default;
 

@@ -3,7 +3,32 @@
 #include <cstddef>
 #include "thread_pool/task.h"
 
+
 namespace thread_pool {
+
+/**
+ * @brief 使用策略
+ */
+enum class PolicyType {
+    FIFO,
+    PRIORITY,
+    WORKSTEALING
+};
+
+/**
+ * @brief 当前线程所属的 worker id
+ *
+ * 用于区分当前提交任务的线程是否为线程池内部 worker。
+ *
+ * 约定：
+ * - 当值为 -1 时，表示当前线程不是 worker 线程
+ * - 当值 >= 0 时，表示当前线程是对应编号的 worker 线程
+ *
+ * WorkStealingPolicy 会根据该值决定任务进入：
+ * - worker 本地队列
+ * - 全局注入队列
+ */
+extern thread_local int tls_worker_id;
 
 /**
  * @brief 调度策略接口

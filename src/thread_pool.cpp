@@ -2,9 +2,8 @@
 
 #include <stdexcept>
 #include <utility>
+#include <iostream>
 
-#include "fifo_policy.h"
-#include "priority_policy.h"
 
 namespace thread_pool {
 
@@ -15,27 +14,8 @@ thread_count_(thread_count), policy_type_(type){
         throw std::invalid_argument("thread_count must be greater than 0!");
     }
 
-     std::unique_ptr<ISchedulePolicy> policy;
-
-    switch (policy_type_) {
-    case PolicyType::FIFO:
-        policy = std::make_unique<FifoPolicy>();
-        break;
-
-    // TODO: 写好接口后使用
-    case PolicyType::Priority:
-        policy = std::make_unique<PriorityPolicy>();
-        break;
-/* 
-    case PolicyType::WorkStealing:
-        policy = std::make_unique<WorkStealingPolicy>(thread_count_);
-        break;
- */
-    default:
-        throw std::logic_error("unknown policy type");
-    }
-
-    scheduler_ = std::make_unique<Scheduler>(std::move(policy));
+    scheduler_ = std::make_unique<Scheduler>(policy_type_, thread_count_);
+    
     // 创建workers_
     workers_.reserve(thread_count_);
     for(int i = 0; i < thread_count_; i++){
@@ -82,9 +62,11 @@ void ThreadPool::submit(Task task, const ScheduleOptions& opts){
 
 void ThreadPool::shutdown() {
     if(state_ == PoolState::Stopped) return;
+
     scheduler_->shutdown();
-    for(auto& worker:workers_){
-        worker->join();
+
+    for(std::size_t i = 0; i < workers_.size(); ++i){
+        workers_[i]->join();
     }
     state_ = PoolState::Stopped;
 }

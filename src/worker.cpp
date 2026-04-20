@@ -5,6 +5,7 @@
 #include <iostream>
 
 namespace thread_pool {
+thread_local int tls_worker_id = -1;
 
 Worker::Worker(std::size_t id, Scheduler* scheduler)
     :id_(id), scheduler_(scheduler)
@@ -22,6 +23,8 @@ void Worker::start() {
 }
 
 void Worker::loop() {
+    tls_worker_id = static_cast<int>(id_);
+
     while(true){
         Task cur_task;
         // 获取任务
@@ -33,6 +36,7 @@ void Worker::loop() {
         // 执行任务
         run_task(std::move(cur_task));
     }
+    tls_worker_id = -1;
 }
 
 void Worker::run_task(Task task) {
@@ -42,8 +46,10 @@ void Worker::run_task(Task task) {
     try{
         task();
     }
-    catch(...){
-        // TODO: 日志记录异常时间 事件
+    catch (const std::exception& e) {
+        std::cerr << "[worker " << id_ << "] task exception: " << e.what() << std::endl;
+    } catch (...) {
+        std::cerr << "[worker " << id_ << "] task exception: unknown" << std::endl;
     }
 
 }

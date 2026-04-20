@@ -20,14 +20,7 @@ enum class PoolState {
     Stopped   ///< 已停止
 };
 
-/**
- * @brief 使用策略
- */
-enum class PolicyType {
-    FIFO,
-    Priority,
-    WorkStealing
-};
+
 
 /**
  * @brief FIFO 线程池
