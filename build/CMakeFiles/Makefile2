@@ -63,8 +63,15 @@ CMAKE_BINARY_DIR = /home/melon/projects/threadpool/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/threadpool_main.dir/all
-all: CMakeFiles/threadpool_tests.dir/all
+all: CMakeFiles/thread_pool.dir/all
+all: CMakeFiles/test_business_fifo_batch.dir/all
+all: CMakeFiles/test_business_priority_service.dir/all
+all: CMakeFiles/test_business_shutdown_burst.dir/all
+all: CMakeFiles/test_business_workstealing_tiles.dir/all
+all: CMakeFiles/test_fifo_policy.dir/all
+all: CMakeFiles/test_policy_benchmark.dir/all
+all: CMakeFiles/test_priority_policy.dir/all
+all: CMakeFiles/test_work_stealing_policy.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,61 +79,250 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/threadpool_main.dir/clean
-clean: CMakeFiles/threadpool_tests.dir/clean
+clean: CMakeFiles/thread_pool.dir/clean
+clean: CMakeFiles/test_business_fifo_batch.dir/clean
+clean: CMakeFiles/test_business_priority_service.dir/clean
+clean: CMakeFiles/test_business_shutdown_burst.dir/clean
+clean: CMakeFiles/test_business_workstealing_tiles.dir/clean
+clean: CMakeFiles/test_fifo_policy.dir/clean
+clean: CMakeFiles/test_policy_benchmark.dir/clean
+clean: CMakeFiles/test_priority_policy.dir/clean
+clean: CMakeFiles/test_work_stealing_policy.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/threadpool_main.dir
+# Target rules for target CMakeFiles/thread_pool.dir
 
 # All Build rule for target.
-CMakeFiles/threadpool_main.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target threadpool_main"
-.PHONY : CMakeFiles/threadpool_main.dir/all
+CMakeFiles/thread_pool.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=17,18,19,20,21,22,23 "Built target thread_pool"
+.PHONY : CMakeFiles/thread_pool.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/threadpool_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/threadpool_main.dir/all
+CMakeFiles/thread_pool.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/thread_pool.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 0
-.PHONY : CMakeFiles/threadpool_main.dir/rule
+.PHONY : CMakeFiles/thread_pool.dir/rule
 
 # Convenience name for target.
-threadpool_main: CMakeFiles/threadpool_main.dir/rule
-.PHONY : threadpool_main
+thread_pool: CMakeFiles/thread_pool.dir/rule
+.PHONY : thread_pool
 
 # clean rule for target.
-CMakeFiles/threadpool_main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/clean
-.PHONY : CMakeFiles/threadpool_main.dir/clean
+CMakeFiles/thread_pool.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/clean
+.PHONY : CMakeFiles/thread_pool.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/threadpool_tests.dir
+# Target rules for target CMakeFiles/test_business_fifo_batch.dir
 
 # All Build rule for target.
-CMakeFiles/threadpool_tests.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=7,8,9,10,11,12,13,14,15 "Built target threadpool_tests"
-.PHONY : CMakeFiles/threadpool_tests.dir/all
+CMakeFiles/test_business_fifo_batch.dir/all: CMakeFiles/thread_pool.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_fifo_batch.dir/build.make CMakeFiles/test_business_fifo_batch.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_fifo_batch.dir/build.make CMakeFiles/test_business_fifo_batch.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=1,2 "Built target test_business_fifo_batch"
+.PHONY : CMakeFiles/test_business_fifo_batch.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/threadpool_tests.dir/rule: cmake_check_build_system
+CMakeFiles/test_business_fifo_batch.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 9
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/threadpool_tests.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_business_fifo_batch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 0
-.PHONY : CMakeFiles/threadpool_tests.dir/rule
+.PHONY : CMakeFiles/test_business_fifo_batch.dir/rule
 
 # Convenience name for target.
-threadpool_tests: CMakeFiles/threadpool_tests.dir/rule
-.PHONY : threadpool_tests
+test_business_fifo_batch: CMakeFiles/test_business_fifo_batch.dir/rule
+.PHONY : test_business_fifo_batch
 
 # clean rule for target.
-CMakeFiles/threadpool_tests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/clean
-.PHONY : CMakeFiles/threadpool_tests.dir/clean
+CMakeFiles/test_business_fifo_batch.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_fifo_batch.dir/build.make CMakeFiles/test_business_fifo_batch.dir/clean
+.PHONY : CMakeFiles/test_business_fifo_batch.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_business_priority_service.dir
+
+# All Build rule for target.
+CMakeFiles/test_business_priority_service.dir/all: CMakeFiles/thread_pool.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_priority_service.dir/build.make CMakeFiles/test_business_priority_service.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_priority_service.dir/build.make CMakeFiles/test_business_priority_service.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=3,4 "Built target test_business_priority_service"
+.PHONY : CMakeFiles/test_business_priority_service.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_business_priority_service.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_business_priority_service.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_business_priority_service.dir/rule
+
+# Convenience name for target.
+test_business_priority_service: CMakeFiles/test_business_priority_service.dir/rule
+.PHONY : test_business_priority_service
+
+# clean rule for target.
+CMakeFiles/test_business_priority_service.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_priority_service.dir/build.make CMakeFiles/test_business_priority_service.dir/clean
+.PHONY : CMakeFiles/test_business_priority_service.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_business_shutdown_burst.dir
+
+# All Build rule for target.
+CMakeFiles/test_business_shutdown_burst.dir/all: CMakeFiles/thread_pool.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_shutdown_burst.dir/build.make CMakeFiles/test_business_shutdown_burst.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_shutdown_burst.dir/build.make CMakeFiles/test_business_shutdown_burst.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=5,6 "Built target test_business_shutdown_burst"
+.PHONY : CMakeFiles/test_business_shutdown_burst.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_business_shutdown_burst.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_business_shutdown_burst.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_business_shutdown_burst.dir/rule
+
+# Convenience name for target.
+test_business_shutdown_burst: CMakeFiles/test_business_shutdown_burst.dir/rule
+.PHONY : test_business_shutdown_burst
+
+# clean rule for target.
+CMakeFiles/test_business_shutdown_burst.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_shutdown_burst.dir/build.make CMakeFiles/test_business_shutdown_burst.dir/clean
+.PHONY : CMakeFiles/test_business_shutdown_burst.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_business_workstealing_tiles.dir
+
+# All Build rule for target.
+CMakeFiles/test_business_workstealing_tiles.dir/all: CMakeFiles/thread_pool.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_workstealing_tiles.dir/build.make CMakeFiles/test_business_workstealing_tiles.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_workstealing_tiles.dir/build.make CMakeFiles/test_business_workstealing_tiles.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=7,8 "Built target test_business_workstealing_tiles"
+.PHONY : CMakeFiles/test_business_workstealing_tiles.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_business_workstealing_tiles.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_business_workstealing_tiles.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_business_workstealing_tiles.dir/rule
+
+# Convenience name for target.
+test_business_workstealing_tiles: CMakeFiles/test_business_workstealing_tiles.dir/rule
+.PHONY : test_business_workstealing_tiles
+
+# clean rule for target.
+CMakeFiles/test_business_workstealing_tiles.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_workstealing_tiles.dir/build.make CMakeFiles/test_business_workstealing_tiles.dir/clean
+.PHONY : CMakeFiles/test_business_workstealing_tiles.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_fifo_policy.dir
+
+# All Build rule for target.
+CMakeFiles/test_fifo_policy.dir/all: CMakeFiles/thread_pool.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fifo_policy.dir/build.make CMakeFiles/test_fifo_policy.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fifo_policy.dir/build.make CMakeFiles/test_fifo_policy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=9,10 "Built target test_fifo_policy"
+.PHONY : CMakeFiles/test_fifo_policy.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_fifo_policy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_fifo_policy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_fifo_policy.dir/rule
+
+# Convenience name for target.
+test_fifo_policy: CMakeFiles/test_fifo_policy.dir/rule
+.PHONY : test_fifo_policy
+
+# clean rule for target.
+CMakeFiles/test_fifo_policy.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fifo_policy.dir/build.make CMakeFiles/test_fifo_policy.dir/clean
+.PHONY : CMakeFiles/test_fifo_policy.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_policy_benchmark.dir
+
+# All Build rule for target.
+CMakeFiles/test_policy_benchmark.dir/all: CMakeFiles/thread_pool.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_policy_benchmark.dir/build.make CMakeFiles/test_policy_benchmark.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_policy_benchmark.dir/build.make CMakeFiles/test_policy_benchmark.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=11,12 "Built target test_policy_benchmark"
+.PHONY : CMakeFiles/test_policy_benchmark.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_policy_benchmark.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_policy_benchmark.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_policy_benchmark.dir/rule
+
+# Convenience name for target.
+test_policy_benchmark: CMakeFiles/test_policy_benchmark.dir/rule
+.PHONY : test_policy_benchmark
+
+# clean rule for target.
+CMakeFiles/test_policy_benchmark.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_policy_benchmark.dir/build.make CMakeFiles/test_policy_benchmark.dir/clean
+.PHONY : CMakeFiles/test_policy_benchmark.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_priority_policy.dir
+
+# All Build rule for target.
+CMakeFiles/test_priority_policy.dir/all: CMakeFiles/thread_pool.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_priority_policy.dir/build.make CMakeFiles/test_priority_policy.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_priority_policy.dir/build.make CMakeFiles/test_priority_policy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=13,14 "Built target test_priority_policy"
+.PHONY : CMakeFiles/test_priority_policy.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_priority_policy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_priority_policy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_priority_policy.dir/rule
+
+# Convenience name for target.
+test_priority_policy: CMakeFiles/test_priority_policy.dir/rule
+.PHONY : test_priority_policy
+
+# clean rule for target.
+CMakeFiles/test_priority_policy.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_priority_policy.dir/build.make CMakeFiles/test_priority_policy.dir/clean
+.PHONY : CMakeFiles/test_priority_policy.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_work_stealing_policy.dir
+
+# All Build rule for target.
+CMakeFiles/test_work_stealing_policy.dir/all: CMakeFiles/thread_pool.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_work_stealing_policy.dir/build.make CMakeFiles/test_work_stealing_policy.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_work_stealing_policy.dir/build.make CMakeFiles/test_work_stealing_policy.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/melon/projects/threadpool/build/CMakeFiles --progress-num=15,16 "Built target test_work_stealing_policy"
+.PHONY : CMakeFiles/test_work_stealing_policy.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_work_stealing_policy.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_work_stealing_policy.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/melon/projects/threadpool/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_work_stealing_policy.dir/rule
+
+# Convenience name for target.
+test_work_stealing_policy: CMakeFiles/test_work_stealing_policy.dir/rule
+.PHONY : test_work_stealing_policy
+
+# clean rule for target.
+CMakeFiles/test_work_stealing_policy.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_work_stealing_policy.dir/build.make CMakeFiles/test_work_stealing_policy.dir/clean
+.PHONY : CMakeFiles/test_work_stealing_policy.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
@@ -135,6 +331,7 @@ CMakeFiles/threadpool_tests.dir/clean:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P /home/melon/projects/threadpool/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

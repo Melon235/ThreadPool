@@ -34,7 +34,7 @@ void test_fifo_policy_order() {
 }
 
 void test_priority_policy_higher_first() {
-    ThreadPool pool(1, PolicyType::Priority);
+    ThreadPool pool(1, PolicyType::PRIORITY);
 
     std::vector<std::string> result;
     std::mutex result_mutex;
@@ -68,7 +68,7 @@ void test_priority_policy_higher_first() {
 }
 
 void test_priority_policy_fifo_with_same_priority() {
-    ThreadPool pool(1, PolicyType::Priority);
+    ThreadPool pool(1, PolicyType::PRIORITY);
 
     std::vector<int> result;
     std::mutex result_mutex;
@@ -92,7 +92,7 @@ void test_priority_policy_fifo_with_same_priority() {
 }
 
 void test_priority_policy_mixed_order() {
-    ThreadPool pool(1, PolicyType::Priority);
+    ThreadPool pool(1, PolicyType::PRIORITY);
 
     std::vector<std::string> result;
     std::mutex result_mutex;

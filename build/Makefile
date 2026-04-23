@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/melon/projects/threadpool/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -113,42 +123,133 @@ preinstall/fast:
 
 # clear depends
 depend:
+	$(CMAKE_COMMAND) -P /home/melon/projects/threadpool/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named threadpool_main
+# Target rules for targets named thread_pool
 
 # Build rule for target.
-threadpool_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 threadpool_main
-.PHONY : threadpool_main
+thread_pool: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thread_pool
+.PHONY : thread_pool
 
 # fast build rule for target.
-threadpool_main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/build
-.PHONY : threadpool_main/fast
+thread_pool/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/build
+.PHONY : thread_pool/fast
 
 #=============================================================================
-# Target rules for targets named threadpool_tests
+# Target rules for targets named test_business_fifo_batch
 
 # Build rule for target.
-threadpool_tests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 threadpool_tests
-.PHONY : threadpool_tests
+test_business_fifo_batch: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_business_fifo_batch
+.PHONY : test_business_fifo_batch
 
 # fast build rule for target.
-threadpool_tests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/build
-.PHONY : threadpool_tests/fast
+test_business_fifo_batch/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_fifo_batch.dir/build.make CMakeFiles/test_business_fifo_batch.dir/build
+.PHONY : test_business_fifo_batch/fast
+
+#=============================================================================
+# Target rules for targets named test_business_priority_service
+
+# Build rule for target.
+test_business_priority_service: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_business_priority_service
+.PHONY : test_business_priority_service
+
+# fast build rule for target.
+test_business_priority_service/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_priority_service.dir/build.make CMakeFiles/test_business_priority_service.dir/build
+.PHONY : test_business_priority_service/fast
+
+#=============================================================================
+# Target rules for targets named test_business_shutdown_burst
+
+# Build rule for target.
+test_business_shutdown_burst: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_business_shutdown_burst
+.PHONY : test_business_shutdown_burst
+
+# fast build rule for target.
+test_business_shutdown_burst/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_shutdown_burst.dir/build.make CMakeFiles/test_business_shutdown_burst.dir/build
+.PHONY : test_business_shutdown_burst/fast
+
+#=============================================================================
+# Target rules for targets named test_business_workstealing_tiles
+
+# Build rule for target.
+test_business_workstealing_tiles: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_business_workstealing_tiles
+.PHONY : test_business_workstealing_tiles
+
+# fast build rule for target.
+test_business_workstealing_tiles/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_workstealing_tiles.dir/build.make CMakeFiles/test_business_workstealing_tiles.dir/build
+.PHONY : test_business_workstealing_tiles/fast
+
+#=============================================================================
+# Target rules for targets named test_fifo_policy
+
+# Build rule for target.
+test_fifo_policy: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_fifo_policy
+.PHONY : test_fifo_policy
+
+# fast build rule for target.
+test_fifo_policy/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fifo_policy.dir/build.make CMakeFiles/test_fifo_policy.dir/build
+.PHONY : test_fifo_policy/fast
+
+#=============================================================================
+# Target rules for targets named test_policy_benchmark
+
+# Build rule for target.
+test_policy_benchmark: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_policy_benchmark
+.PHONY : test_policy_benchmark
+
+# fast build rule for target.
+test_policy_benchmark/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_policy_benchmark.dir/build.make CMakeFiles/test_policy_benchmark.dir/build
+.PHONY : test_policy_benchmark/fast
+
+#=============================================================================
+# Target rules for targets named test_priority_policy
+
+# Build rule for target.
+test_priority_policy: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_priority_policy
+.PHONY : test_priority_policy
+
+# fast build rule for target.
+test_priority_policy/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_priority_policy.dir/build.make CMakeFiles/test_priority_policy.dir/build
+.PHONY : test_priority_policy/fast
+
+#=============================================================================
+# Target rules for targets named test_work_stealing_policy
+
+# Build rule for target.
+test_work_stealing_policy: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_work_stealing_policy
+.PHONY : test_work_stealing_policy
+
+# fast build rule for target.
+test_work_stealing_policy/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_work_stealing_policy.dir/build.make CMakeFiles/test_work_stealing_policy.dir/build
+.PHONY : test_work_stealing_policy/fast
 
 policies/fifo_policy.o: policies/fifo_policy.cpp.o
 .PHONY : policies/fifo_policy.o
 
 # target to build an object file
 policies/fifo_policy.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/policies/fifo_policy.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/policies/fifo_policy.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/policies/fifo_policy.cpp.o
 .PHONY : policies/fifo_policy.cpp.o
 
 policies/fifo_policy.i: policies/fifo_policy.cpp.i
@@ -156,8 +257,7 @@ policies/fifo_policy.i: policies/fifo_policy.cpp.i
 
 # target to preprocess a source file
 policies/fifo_policy.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/policies/fifo_policy.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/policies/fifo_policy.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/policies/fifo_policy.cpp.i
 .PHONY : policies/fifo_policy.cpp.i
 
 policies/fifo_policy.s: policies/fifo_policy.cpp.s
@@ -165,17 +265,63 @@ policies/fifo_policy.s: policies/fifo_policy.cpp.s
 
 # target to generate assembly for a file
 policies/fifo_policy.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/policies/fifo_policy.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/policies/fifo_policy.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/policies/fifo_policy.cpp.s
 .PHONY : policies/fifo_policy.cpp.s
+
+policies/priority_policy.o: policies/priority_policy.cpp.o
+.PHONY : policies/priority_policy.o
+
+# target to build an object file
+policies/priority_policy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/policies/priority_policy.cpp.o
+.PHONY : policies/priority_policy.cpp.o
+
+policies/priority_policy.i: policies/priority_policy.cpp.i
+.PHONY : policies/priority_policy.i
+
+# target to preprocess a source file
+policies/priority_policy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/policies/priority_policy.cpp.i
+.PHONY : policies/priority_policy.cpp.i
+
+policies/priority_policy.s: policies/priority_policy.cpp.s
+.PHONY : policies/priority_policy.s
+
+# target to generate assembly for a file
+policies/priority_policy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/policies/priority_policy.cpp.s
+.PHONY : policies/priority_policy.cpp.s
+
+policies/work_stealing_policy.o: policies/work_stealing_policy.cpp.o
+.PHONY : policies/work_stealing_policy.o
+
+# target to build an object file
+policies/work_stealing_policy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/policies/work_stealing_policy.cpp.o
+.PHONY : policies/work_stealing_policy.cpp.o
+
+policies/work_stealing_policy.i: policies/work_stealing_policy.cpp.i
+.PHONY : policies/work_stealing_policy.i
+
+# target to preprocess a source file
+policies/work_stealing_policy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/policies/work_stealing_policy.cpp.i
+.PHONY : policies/work_stealing_policy.cpp.i
+
+policies/work_stealing_policy.s: policies/work_stealing_policy.cpp.s
+.PHONY : policies/work_stealing_policy.s
+
+# target to generate assembly for a file
+policies/work_stealing_policy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/policies/work_stealing_policy.cpp.s
+.PHONY : policies/work_stealing_policy.cpp.s
 
 src/scheduler.o: src/scheduler.cpp.o
 .PHONY : src/scheduler.o
 
 # target to build an object file
 src/scheduler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/scheduler.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/scheduler.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/src/scheduler.cpp.o
 .PHONY : src/scheduler.cpp.o
 
 src/scheduler.i: src/scheduler.cpp.i
@@ -183,8 +329,7 @@ src/scheduler.i: src/scheduler.cpp.i
 
 # target to preprocess a source file
 src/scheduler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/scheduler.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/scheduler.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/src/scheduler.cpp.i
 .PHONY : src/scheduler.cpp.i
 
 src/scheduler.s: src/scheduler.cpp.s
@@ -192,44 +337,15 @@ src/scheduler.s: src/scheduler.cpp.s
 
 # target to generate assembly for a file
 src/scheduler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/scheduler.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/scheduler.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/src/scheduler.cpp.s
 .PHONY : src/scheduler.cpp.s
-
-src/task.o: src/task.cpp.o
-.PHONY : src/task.o
-
-# target to build an object file
-src/task.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/task.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/task.cpp.o
-.PHONY : src/task.cpp.o
-
-src/task.i: src/task.cpp.i
-.PHONY : src/task.i
-
-# target to preprocess a source file
-src/task.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/task.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/task.cpp.i
-.PHONY : src/task.cpp.i
-
-src/task.s: src/task.cpp.s
-.PHONY : src/task.s
-
-# target to generate assembly for a file
-src/task.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/task.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/task.cpp.s
-.PHONY : src/task.cpp.s
 
 src/thread_pool.o: src/thread_pool.cpp.o
 .PHONY : src/thread_pool.o
 
 # target to build an object file
 src/thread_pool.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/thread_pool.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/thread_pool.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/src/thread_pool.cpp.o
 .PHONY : src/thread_pool.cpp.o
 
 src/thread_pool.i: src/thread_pool.cpp.i
@@ -237,8 +353,7 @@ src/thread_pool.i: src/thread_pool.cpp.i
 
 # target to preprocess a source file
 src/thread_pool.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/thread_pool.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/thread_pool.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/src/thread_pool.cpp.i
 .PHONY : src/thread_pool.cpp.i
 
 src/thread_pool.s: src/thread_pool.cpp.s
@@ -246,8 +361,7 @@ src/thread_pool.s: src/thread_pool.cpp.s
 
 # target to generate assembly for a file
 src/thread_pool.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/thread_pool.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/thread_pool.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/src/thread_pool.cpp.s
 .PHONY : src/thread_pool.cpp.s
 
 src/worker.o: src/worker.cpp.o
@@ -255,8 +369,7 @@ src/worker.o: src/worker.cpp.o
 
 # target to build an object file
 src/worker.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/worker.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/worker.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/src/worker.cpp.o
 .PHONY : src/worker.cpp.o
 
 src/worker.i: src/worker.cpp.i
@@ -264,8 +377,7 @@ src/worker.i: src/worker.cpp.i
 
 # target to preprocess a source file
 src/worker.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/worker.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/worker.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/src/worker.cpp.i
 .PHONY : src/worker.cpp.i
 
 src/worker.s: src/worker.cpp.s
@@ -273,81 +385,200 @@ src/worker.s: src/worker.cpp.s
 
 # target to generate assembly for a file
 src/worker.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_main.dir/build.make CMakeFiles/threadpool_main.dir/src/worker.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/src/worker.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thread_pool.dir/build.make CMakeFiles/thread_pool.dir/src/worker.cpp.s
 .PHONY : src/worker.cpp.s
 
-tests/test_basic.o: tests/test_basic.cpp.o
-.PHONY : tests/test_basic.o
+tests/test_business_fifo_batch.o: tests/test_business_fifo_batch.cpp.o
+.PHONY : tests/test_business_fifo_batch.o
 
 # target to build an object file
-tests/test_basic.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/tests/test_basic.cpp.o
-.PHONY : tests/test_basic.cpp.o
+tests/test_business_fifo_batch.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_fifo_batch.dir/build.make CMakeFiles/test_business_fifo_batch.dir/tests/test_business_fifo_batch.cpp.o
+.PHONY : tests/test_business_fifo_batch.cpp.o
 
-tests/test_basic.i: tests/test_basic.cpp.i
-.PHONY : tests/test_basic.i
+tests/test_business_fifo_batch.i: tests/test_business_fifo_batch.cpp.i
+.PHONY : tests/test_business_fifo_batch.i
 
 # target to preprocess a source file
-tests/test_basic.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/tests/test_basic.cpp.i
-.PHONY : tests/test_basic.cpp.i
+tests/test_business_fifo_batch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_fifo_batch.dir/build.make CMakeFiles/test_business_fifo_batch.dir/tests/test_business_fifo_batch.cpp.i
+.PHONY : tests/test_business_fifo_batch.cpp.i
 
-tests/test_basic.s: tests/test_basic.cpp.s
-.PHONY : tests/test_basic.s
+tests/test_business_fifo_batch.s: tests/test_business_fifo_batch.cpp.s
+.PHONY : tests/test_business_fifo_batch.s
 
 # target to generate assembly for a file
-tests/test_basic.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/tests/test_basic.cpp.s
-.PHONY : tests/test_basic.cpp.s
+tests/test_business_fifo_batch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_fifo_batch.dir/build.make CMakeFiles/test_business_fifo_batch.dir/tests/test_business_fifo_batch.cpp.s
+.PHONY : tests/test_business_fifo_batch.cpp.s
 
-tests/test_future.o: tests/test_future.cpp.o
-.PHONY : tests/test_future.o
+tests/test_business_priority_service.o: tests/test_business_priority_service.cpp.o
+.PHONY : tests/test_business_priority_service.o
 
 # target to build an object file
-tests/test_future.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/tests/test_future.cpp.o
-.PHONY : tests/test_future.cpp.o
+tests/test_business_priority_service.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_priority_service.dir/build.make CMakeFiles/test_business_priority_service.dir/tests/test_business_priority_service.cpp.o
+.PHONY : tests/test_business_priority_service.cpp.o
 
-tests/test_future.i: tests/test_future.cpp.i
-.PHONY : tests/test_future.i
+tests/test_business_priority_service.i: tests/test_business_priority_service.cpp.i
+.PHONY : tests/test_business_priority_service.i
 
 # target to preprocess a source file
-tests/test_future.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/tests/test_future.cpp.i
-.PHONY : tests/test_future.cpp.i
+tests/test_business_priority_service.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_priority_service.dir/build.make CMakeFiles/test_business_priority_service.dir/tests/test_business_priority_service.cpp.i
+.PHONY : tests/test_business_priority_service.cpp.i
 
-tests/test_future.s: tests/test_future.cpp.s
-.PHONY : tests/test_future.s
+tests/test_business_priority_service.s: tests/test_business_priority_service.cpp.s
+.PHONY : tests/test_business_priority_service.s
 
 # target to generate assembly for a file
-tests/test_future.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/tests/test_future.cpp.s
-.PHONY : tests/test_future.cpp.s
+tests/test_business_priority_service.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_priority_service.dir/build.make CMakeFiles/test_business_priority_service.dir/tests/test_business_priority_service.cpp.s
+.PHONY : tests/test_business_priority_service.cpp.s
 
-tests/test_shutdown.o: tests/test_shutdown.cpp.o
-.PHONY : tests/test_shutdown.o
+tests/test_business_shutdown_burst.o: tests/test_business_shutdown_burst.cpp.o
+.PHONY : tests/test_business_shutdown_burst.o
 
 # target to build an object file
-tests/test_shutdown.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/tests/test_shutdown.cpp.o
-.PHONY : tests/test_shutdown.cpp.o
+tests/test_business_shutdown_burst.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_shutdown_burst.dir/build.make CMakeFiles/test_business_shutdown_burst.dir/tests/test_business_shutdown_burst.cpp.o
+.PHONY : tests/test_business_shutdown_burst.cpp.o
 
-tests/test_shutdown.i: tests/test_shutdown.cpp.i
-.PHONY : tests/test_shutdown.i
+tests/test_business_shutdown_burst.i: tests/test_business_shutdown_burst.cpp.i
+.PHONY : tests/test_business_shutdown_burst.i
 
 # target to preprocess a source file
-tests/test_shutdown.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/tests/test_shutdown.cpp.i
-.PHONY : tests/test_shutdown.cpp.i
+tests/test_business_shutdown_burst.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_shutdown_burst.dir/build.make CMakeFiles/test_business_shutdown_burst.dir/tests/test_business_shutdown_burst.cpp.i
+.PHONY : tests/test_business_shutdown_burst.cpp.i
 
-tests/test_shutdown.s: tests/test_shutdown.cpp.s
-.PHONY : tests/test_shutdown.s
+tests/test_business_shutdown_burst.s: tests/test_business_shutdown_burst.cpp.s
+.PHONY : tests/test_business_shutdown_burst.s
 
 # target to generate assembly for a file
-tests/test_shutdown.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/threadpool_tests.dir/build.make CMakeFiles/threadpool_tests.dir/tests/test_shutdown.cpp.s
-.PHONY : tests/test_shutdown.cpp.s
+tests/test_business_shutdown_burst.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_shutdown_burst.dir/build.make CMakeFiles/test_business_shutdown_burst.dir/tests/test_business_shutdown_burst.cpp.s
+.PHONY : tests/test_business_shutdown_burst.cpp.s
+
+tests/test_business_workstealing_tiles.o: tests/test_business_workstealing_tiles.cpp.o
+.PHONY : tests/test_business_workstealing_tiles.o
+
+# target to build an object file
+tests/test_business_workstealing_tiles.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_workstealing_tiles.dir/build.make CMakeFiles/test_business_workstealing_tiles.dir/tests/test_business_workstealing_tiles.cpp.o
+.PHONY : tests/test_business_workstealing_tiles.cpp.o
+
+tests/test_business_workstealing_tiles.i: tests/test_business_workstealing_tiles.cpp.i
+.PHONY : tests/test_business_workstealing_tiles.i
+
+# target to preprocess a source file
+tests/test_business_workstealing_tiles.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_workstealing_tiles.dir/build.make CMakeFiles/test_business_workstealing_tiles.dir/tests/test_business_workstealing_tiles.cpp.i
+.PHONY : tests/test_business_workstealing_tiles.cpp.i
+
+tests/test_business_workstealing_tiles.s: tests/test_business_workstealing_tiles.cpp.s
+.PHONY : tests/test_business_workstealing_tiles.s
+
+# target to generate assembly for a file
+tests/test_business_workstealing_tiles.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_business_workstealing_tiles.dir/build.make CMakeFiles/test_business_workstealing_tiles.dir/tests/test_business_workstealing_tiles.cpp.s
+.PHONY : tests/test_business_workstealing_tiles.cpp.s
+
+tests/test_fifo_policy.o: tests/test_fifo_policy.cpp.o
+.PHONY : tests/test_fifo_policy.o
+
+# target to build an object file
+tests/test_fifo_policy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fifo_policy.dir/build.make CMakeFiles/test_fifo_policy.dir/tests/test_fifo_policy.cpp.o
+.PHONY : tests/test_fifo_policy.cpp.o
+
+tests/test_fifo_policy.i: tests/test_fifo_policy.cpp.i
+.PHONY : tests/test_fifo_policy.i
+
+# target to preprocess a source file
+tests/test_fifo_policy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fifo_policy.dir/build.make CMakeFiles/test_fifo_policy.dir/tests/test_fifo_policy.cpp.i
+.PHONY : tests/test_fifo_policy.cpp.i
+
+tests/test_fifo_policy.s: tests/test_fifo_policy.cpp.s
+.PHONY : tests/test_fifo_policy.s
+
+# target to generate assembly for a file
+tests/test_fifo_policy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fifo_policy.dir/build.make CMakeFiles/test_fifo_policy.dir/tests/test_fifo_policy.cpp.s
+.PHONY : tests/test_fifo_policy.cpp.s
+
+tests/test_policy_benchmark.o: tests/test_policy_benchmark.cpp.o
+.PHONY : tests/test_policy_benchmark.o
+
+# target to build an object file
+tests/test_policy_benchmark.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_policy_benchmark.dir/build.make CMakeFiles/test_policy_benchmark.dir/tests/test_policy_benchmark.cpp.o
+.PHONY : tests/test_policy_benchmark.cpp.o
+
+tests/test_policy_benchmark.i: tests/test_policy_benchmark.cpp.i
+.PHONY : tests/test_policy_benchmark.i
+
+# target to preprocess a source file
+tests/test_policy_benchmark.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_policy_benchmark.dir/build.make CMakeFiles/test_policy_benchmark.dir/tests/test_policy_benchmark.cpp.i
+.PHONY : tests/test_policy_benchmark.cpp.i
+
+tests/test_policy_benchmark.s: tests/test_policy_benchmark.cpp.s
+.PHONY : tests/test_policy_benchmark.s
+
+# target to generate assembly for a file
+tests/test_policy_benchmark.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_policy_benchmark.dir/build.make CMakeFiles/test_policy_benchmark.dir/tests/test_policy_benchmark.cpp.s
+.PHONY : tests/test_policy_benchmark.cpp.s
+
+tests/test_priority_policy.o: tests/test_priority_policy.cpp.o
+.PHONY : tests/test_priority_policy.o
+
+# target to build an object file
+tests/test_priority_policy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_priority_policy.dir/build.make CMakeFiles/test_priority_policy.dir/tests/test_priority_policy.cpp.o
+.PHONY : tests/test_priority_policy.cpp.o
+
+tests/test_priority_policy.i: tests/test_priority_policy.cpp.i
+.PHONY : tests/test_priority_policy.i
+
+# target to preprocess a source file
+tests/test_priority_policy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_priority_policy.dir/build.make CMakeFiles/test_priority_policy.dir/tests/test_priority_policy.cpp.i
+.PHONY : tests/test_priority_policy.cpp.i
+
+tests/test_priority_policy.s: tests/test_priority_policy.cpp.s
+.PHONY : tests/test_priority_policy.s
+
+# target to generate assembly for a file
+tests/test_priority_policy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_priority_policy.dir/build.make CMakeFiles/test_priority_policy.dir/tests/test_priority_policy.cpp.s
+.PHONY : tests/test_priority_policy.cpp.s
+
+tests/test_work_stealing_policy.o: tests/test_work_stealing_policy.cpp.o
+.PHONY : tests/test_work_stealing_policy.o
+
+# target to build an object file
+tests/test_work_stealing_policy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_work_stealing_policy.dir/build.make CMakeFiles/test_work_stealing_policy.dir/tests/test_work_stealing_policy.cpp.o
+.PHONY : tests/test_work_stealing_policy.cpp.o
+
+tests/test_work_stealing_policy.i: tests/test_work_stealing_policy.cpp.i
+.PHONY : tests/test_work_stealing_policy.i
+
+# target to preprocess a source file
+tests/test_work_stealing_policy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_work_stealing_policy.dir/build.make CMakeFiles/test_work_stealing_policy.dir/tests/test_work_stealing_policy.cpp.i
+.PHONY : tests/test_work_stealing_policy.cpp.i
+
+tests/test_work_stealing_policy.s: tests/test_work_stealing_policy.cpp.s
+.PHONY : tests/test_work_stealing_policy.s
+
+# target to generate assembly for a file
+tests/test_work_stealing_policy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_work_stealing_policy.dir/build.make CMakeFiles/test_work_stealing_policy.dir/tests/test_work_stealing_policy.cpp.s
+.PHONY : tests/test_work_stealing_policy.cpp.s
 
 # Help Target
 help:
@@ -357,32 +588,58 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... threadpool_main"
-	@echo "... threadpool_tests"
+	@echo "... test"
+	@echo "... test_business_fifo_batch"
+	@echo "... test_business_priority_service"
+	@echo "... test_business_shutdown_burst"
+	@echo "... test_business_workstealing_tiles"
+	@echo "... test_fifo_policy"
+	@echo "... test_policy_benchmark"
+	@echo "... test_priority_policy"
+	@echo "... test_work_stealing_policy"
+	@echo "... thread_pool"
 	@echo "... policies/fifo_policy.o"
 	@echo "... policies/fifo_policy.i"
 	@echo "... policies/fifo_policy.s"
+	@echo "... policies/priority_policy.o"
+	@echo "... policies/priority_policy.i"
+	@echo "... policies/priority_policy.s"
+	@echo "... policies/work_stealing_policy.o"
+	@echo "... policies/work_stealing_policy.i"
+	@echo "... policies/work_stealing_policy.s"
 	@echo "... src/scheduler.o"
 	@echo "... src/scheduler.i"
 	@echo "... src/scheduler.s"
-	@echo "... src/task.o"
-	@echo "... src/task.i"
-	@echo "... src/task.s"
 	@echo "... src/thread_pool.o"
 	@echo "... src/thread_pool.i"
 	@echo "... src/thread_pool.s"
 	@echo "... src/worker.o"
 	@echo "... src/worker.i"
 	@echo "... src/worker.s"
-	@echo "... tests/test_basic.o"
-	@echo "... tests/test_basic.i"
-	@echo "... tests/test_basic.s"
-	@echo "... tests/test_future.o"
-	@echo "... tests/test_future.i"
-	@echo "... tests/test_future.s"
-	@echo "... tests/test_shutdown.o"
-	@echo "... tests/test_shutdown.i"
-	@echo "... tests/test_shutdown.s"
+	@echo "... tests/test_business_fifo_batch.o"
+	@echo "... tests/test_business_fifo_batch.i"
+	@echo "... tests/test_business_fifo_batch.s"
+	@echo "... tests/test_business_priority_service.o"
+	@echo "... tests/test_business_priority_service.i"
+	@echo "... tests/test_business_priority_service.s"
+	@echo "... tests/test_business_shutdown_burst.o"
+	@echo "... tests/test_business_shutdown_burst.i"
+	@echo "... tests/test_business_shutdown_burst.s"
+	@echo "... tests/test_business_workstealing_tiles.o"
+	@echo "... tests/test_business_workstealing_tiles.i"
+	@echo "... tests/test_business_workstealing_tiles.s"
+	@echo "... tests/test_fifo_policy.o"
+	@echo "... tests/test_fifo_policy.i"
+	@echo "... tests/test_fifo_policy.s"
+	@echo "... tests/test_policy_benchmark.o"
+	@echo "... tests/test_policy_benchmark.i"
+	@echo "... tests/test_policy_benchmark.s"
+	@echo "... tests/test_priority_policy.o"
+	@echo "... tests/test_priority_policy.i"
+	@echo "... tests/test_priority_policy.s"
+	@echo "... tests/test_work_stealing_policy.o"
+	@echo "... tests/test_work_stealing_policy.i"
+	@echo "... tests/test_work_stealing_policy.s"
 .PHONY : help
 
 
@@ -394,6 +651,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	$(CMAKE_COMMAND) -P /home/melon/projects/threadpool/build/CMakeFiles/VerifyGlobs.cmake
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

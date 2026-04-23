@@ -274,3 +274,81 @@ events:
       
       
 ...
+
+---
+events:
+
+---
+events:
+  -
+  -
+    kind: "try_compile-v1"
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:99 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:99 (CHECK_CXX_SOURCE_COMPILES)"
+      - "CMakeLists.txt:12 (find_package)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+    checks:
+      - "CMakeLists.txt:12 (find_package)"
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    checks:
+    directories:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+      source: "/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-DVnpIx"
+    directories:
+      binary: "/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-DVnpIx"
+      source: "/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-SePEXc"
+      binary: "/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-SePEXc"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+    cmakeVariables:
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+    buildResult:
+      CMAKE_EXE_LINKER_FLAGS: ""
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+    buildResult:
+      cached: true
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      stdout: |
+      cached: true
+        Change Dir: '/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-DVnpIx'
+      stdout: |
+        
+        Change Dir: '/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-SePEXc'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_003df/fast
+        
+        gmake[1]: Entering directory '/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-DVnpIx'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b7883/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_003df.dir/build.make CMakeFiles/cmTC_003df.dir/build
+        /usr/bin/gmake  -f CMakeFiles/cmTC_b7883.dir/build.make CMakeFiles/cmTC_b7883.dir/build
+        gmake[2]: Entering directory '/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-DVnpIx'
+        gmake[1]: Entering directory '/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-SePEXc'
+        Building CXX object CMakeFiles/cmTC_003df.dir/src.cxx.o
+        Building CXX object CMakeFiles/cmTC_b7883.dir/src.cxx.o
+        /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=c++17 -o CMakeFiles/cmTC_003df.dir/src.cxx.o -c /home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-DVnpIx/src.cxx
+        /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=c++17 -o CMakeFiles/cmTC_b7883.dir/src.cxx.o -c /home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-SePEXc/src.cxx
+        Linking CXX executable cmTC_003df
+        Linking CXX executable cmTC_b7883
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_003df.dir/link.txt --verbose=1
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b7883.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_003df.dir/src.cxx.o -o cmTC_003df 
+        /usr/bin/c++ CMakeFiles/cmTC_b7883.dir/src.cxx.o -o cmTC_b7883 
+        gmake[2]: Leaving directory '/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-DVnpIx'
+        gmake[1]: Leaving directory '/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-SePEXc'
+        gmake[1]: Leaving directory '/home/melon/projects/threadpool/build/CMakeFiles/CMakeScratch/TryCompile-DVnpIx'
+        
+        
+      exitCode: 0
+      exitCode: 0
+...
+...
